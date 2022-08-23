@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width">
+  <title>Mathjax Generator</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+    svg: {fontCache: 'global'},
+    startup: {
+      ready: function () {
+        MathJax.startup.defaultReady();
+        document.getElementById('render').disabled = false;
+      }
+    }
+  }
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>
+  <script>
+    function convert() {
+      //
+      //  Get the input (it is HTML containing delimited TeX math
+      //    and/or MathML tags
+      //
+      var input = document.getElementById("input").value.trim();
+      //
+      //  Disable the render button until MathJax is done
+      //
+      var button = document.getElementById("render");
+      button.disabled = true;
+      //
+      //  Clear the old output
+      //
+      output = document.getElementById('output');
+      output.innerHTML = input;
+      //
+      //  Reset the tex labels (and automatic equation numbers, though there aren't any here).
+      //  Reset the typesetting system (font caches, etc.)
+      //  Typeset the page, using a promise to let us know when that is complete
+      //
+      MathJax.texReset();
+      MathJax.typesetClear();
+      MathJax.typesetPromise()
+        .catch(function (err) {
+          //
+          //  If there was an internal error, put the message into the output instead
+          //
+          output.innerHTML = '';
+          output.appendChild(document.createElement('pre')).appendChild(document.createTextNode(err.message));
+        })
+        .then(function() {
+          //
+          //  Error or not, re-enable the render button
+          //
+          button.disabled = false;
+        });
+    }
+  </script>
+  <style>
+  #frame {
+    max-width: 40em;
+    margin: auto;
+  }
+  #input {
+    border: 1px solid grey;
+    margin: 0 0 .25em;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  #output {
+    margin-top: .75em;
+    border: 1px solid grey;
+    padding: .25em;
+    min-height: 2em;
+  }
+  #output > pre {
+    margin-left: 5px;
+  }
+  .right {
+    float: right;
+  }
+  </style>
+</head>
+
+<body>
+<div id="frame">
+<h1>Math text Generator</h1>
+
+<textarea class="textarea" id="input" rows="15" cols="10">
+Sample Code If $a \ne 0$, then $ax^2 + bx + c = 0$ has two solutions,
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+</textarea>
+  <br>
+  <label>Prove your not a robot</label>
+  <div class="g-recaptcha" data-sitekey="6LfLmJwhAAAAAEn3Ejyg0yEo1_QKIBzb1uJyc9Y-"></div>
+<br />
+<div class="center">
+<input  class="button button1" type="button" value="Generate" id="render" onclick="convert()" disabled />
+</div>
+  <h3>Output:</h3>
+<br clear="all" />
+<div id="output"></div>
+</div>
+   <!-- Include from the CDN -->
+    <script src=
+"https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js">
+    </script>
+  
+    <!-- Include locally otherwise -->
+    <!-- <script src='html2canvas.js'></script> -->
+  
+    <style>
+        #photo {
+            border: 4px solid green;
+            padding: 4px;
+        }
+    </style>
+</head>
+  
+<body>
+<h3>Click the button the generate a image from the generated math. Then right click to save it to your computer. (Make sure you have something in the output box or nothing will appear)</h3>
+        <button  class="button button1" onclick="takeshot()">
+            Take Screenshot
+        </button>
+    </div>
+    <h1>Screenshot:</h1>
+    <div id="ss"></div>
+  
+    <script type="text/javascript">
+  
+        // Define the function 
+        // to screenshot the div
+        function takeshot() {
+            let div =
+                document.getElementById('output');
+  
+            // Use the html2canvas
+            // function to take a screenshot
+            // and append it
+            // to the output div
+            html2canvas(div).then(
+                function (canvas) {
+                    document
+                    .getElementById('ss')
+                    .appendChild(canvas);
+                })
+        }
+    </script>
+
+</body>
+
+</html>
