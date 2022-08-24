@@ -167,6 +167,81 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
         }
     </style>
 </head>
+  <style>
+.collapsible {
+  background-color: #5865F2;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #0000FF;
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+</style>
+</head>
+<body>
+
+<h3>Getting started with the editor</h3>
+  <p>Seeing the example text can make the process of using the site look complicated however it is very easy. That is just showcasing one of the most complex operations our site can handle. To get started see the drop downs below they answer the most common questions!</p>
+<button class="collapsible">Inline Formating</button>
+<div class="content">
+  <p>Placing an equation inside a \(...\) delimiter indicates the equation should be in an inline format. Generally,
+equations entered with text should be formatted inline.
+Example: <code>\(area = \int_{a}^b f(x)dx\)</code></p>
+</div>
+<button class="collapsible">Block Formatiing</button>
+<div class="content">
+  <p>Placing an equation inside a $$...$$ delimiter indicates the equation should be in a block format.
+Example: <code>$$y = mx + b$$</code></p>
+</div>
+<button class="collapsible">How I type a ____</button>
+<div class="content">
+<img src="https://i.ibb.co/DY37Tg0/symbolsandelelements.png" alt="mathelemments" width="500" height="500">
+</div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+  <br>
   
 <a href="https://github.com/trehousecomicsDev/ezmathgenerator"><img src="https://ezmathgenerator.dismalbread4106.repl.co/open-source-150x25.png" alt="HTML tutorial" style="width:150px;height:25px;"></a>
 </body>
