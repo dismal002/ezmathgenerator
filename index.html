@@ -3,6 +3,36 @@
 <html lang="en">
   <link href="style.css" rel="stylesheet" type="text/css" />
 <head>
+  <!--Alert Messages-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.alert {
+  padding: 20px;
+  background-color: #ff9800;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+</style>
+
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>Update</strong> Due to a bug the screenshot function has been temporarily removed!
+</div>
+  
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width">
@@ -97,7 +127,7 @@ Sample Code If $a \ne 0$, then $ax^2 + bx + c = 0$ has two solutions,
 $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 </textarea>
   <br>
-  <label>Prove you're not a robot</label>
+  <label>Prove your not a robot</label>
   <div class="g-recaptcha" data-sitekey="6LfLmJwhAAAAAEn3Ejyg0yEo1_QKIBzb1uJyc9Y-"></div>
 <br />
 <div class="center">
@@ -123,10 +153,6 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
     </style>
 </head>
   
-<body>
-       
-  <br>
-  <br>
 <a href="https://github.com/trehousecomicsDev/ezmathgenerator"><img src="https://ezmathgenerator.dismalbread4106.repl.co/open-source-150x25.png" alt="HTML tutorial" style="width:150px;height:25px;"></a>
 </body>
 
