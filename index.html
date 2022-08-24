@@ -124,34 +124,7 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 </head>
   
 <body>
-<h3>Click the button the generate a image from the generated math. Then right click to save it to your computer. (Make sure you have something in the output box or nothing will appear)</h3>
-        <button  class="button button1" onclick="takeshot()">
-            Take Screenshot
-        </button>
-    </div>
-    <h1>Screenshot:</h1>
-    <div id="ss"></div>
-  
-    <script type="text/javascript">
-  
-        // Define the function 
-        // to screenshot the div
-        function takeshot() {
-            let div =
-                document.getElementById('output');
-  
-            // Use the html2canvas
-            // function to take a screenshot
-            // and append it
-            // to the output div
-            html2canvas(div).then(
-                function (canvas) {
-                    document
-                    .getElementById('ss')
-                    .appendChild(canvas);
-                })
-        }
-    </script>
+       
   <br>
   <br>
 <a href="https://github.com/trehousecomicsDev/ezmathgenerator"><img src="https://ezmathgenerator.dismalbread4106.repl.co/open-source-150x25.png" alt="HTML tutorial" style="width:150px;height:25px;"></a>
