@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<script type="text/javascript" src="https://compsci.rocks/assets/js/csr.min.js"></script>
+<style> 
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+</style>
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3122898,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<style>
+.textarea {
+  background-color: #dddddd;
+  color: #666666;
+  padding: 1em;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  outline: none;
+  font-family: "Heebo", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+  width: 200px;
+  height: 100px;
+  transition: all 0.2s;
+}
+
+.textarea:hover {
+  cursor: pointer;
+  background-color: #eeeeee;
+}
+
+.textarea:focus {
+  cursor: text;
+  color: #333333;
+  background-color: white;
+  border-color: #333333;
+  
+}
+
+</style>
+<style>
+.button {
+  background-color: #5865F2; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button3 {border-radius: 8px;}
+</style>
+
+  <h2>Corrections Calculator</h2>
+
+<div class="form-control w-full max-w-xs">
+<label class="label"><span class="label-text">Max Score</span></label>
+<input type="text" id="max" class="input input-bordered w-full max-w-xs"/>
+<label class="label"><span class="label-text">% Returned</span></label>
+<input type="text" id="pct" class="input input-bordered w-full max-w-xs"/>
+<label class="label"><span class="label-text">Decimals</span></label>
+<input type="text" id="dec" class="input input-bordered w-full max-w-xs"/>
+<label class="label"><span class="label-text">Grades</span></label>
+<br>
+<textarea rows="4" cols="50" id="grades" class ="textarea" class="input input-bordered w-full max-w-xs h-32"></textarea>
+<br>
+<br>
+<button id="calculate" class="button button3" class="btn btn-primary my-4">Calculate</button>
+
+<body>
+
+</div>
+<script>calc.partialCredit.init();</script>
+<div id="results"></div>
+</html>
+
